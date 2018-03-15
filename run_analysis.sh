@@ -1,9 +1,9 @@
 #!/bin/sh
 mkdir ./output
 
-dbname = $1
-username = $2
-gemname = $3
+dbname=$1
+username=$2
+gemname=$3
 
 # Run fake condition mappings (since we don't want to rely on the current ETL)
 psql $dbname $username -a -f src/fake_condition_mappings2.sql
