@@ -204,8 +204,8 @@ CREATE INDEX my_idx on icd_src_concepts_mapped_descendants (idx, concept_id);
 CREATE TABLE src_concepts_and_patients AS
 select icd_src_concepts.concept_id, icd_src_concepts.idx, person_id
 from icd_src_concepts
-left join fake_condition_occurrence
-on icd_src_concepts.concept_id = fake_condition_occurrence.condition_source_concept_id;
+left join full_fake_condition_occurrence
+on icd_src_concepts.concept_id = full_fake_condition_occurrence.condition_source_concept_id;
 
 CREATE INDEX concept_id_idx on src_concepts_and_patients (concept_id);
 
@@ -222,8 +222,8 @@ from (
 	select distinct descendant_mapped_concept_id, idx
 	from icd_src_concepts_mapped_descendants
 	) foo
-left join fake_condition_occurrence
-on foo.descendant_mapped_concept_id = fake_condition_occurrence.condition_concept_id;
+left join full_fake_condition_occurrence
+on foo.descendant_mapped_concept_id = full_fake_condition_occurrence.condition_concept_id;
 
 CREATE INDEX desc_pats_concept_idx on descendants_concepts_and_patients (descendant_mapped_concept_id);
 
