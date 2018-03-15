@@ -28,8 +28,8 @@ sed -i '' 's/"]/"]],/' $new_file
 sed -i '' '$s/],/]/g' $new_file # remove comma added to the last line
 
 # add new line to top and bottom with [ and ]
-sed -i '' -e '1 i\'$'\n''[' $new_file
-sed -i '' -e '$a\'$'\n'']' $new_file
+sed -i '' '1 i\'$'\n''[' $new_file
+sed -i '' '$a\'$'\n'']' $new_file
 
 # b. Replace all "' with [' and all '" with ']. # this allows the concept_code list to be read as an array by python.
 # c. Replace all single quotes ' with double quotes " # use sed "s/'/\"/g"
