@@ -1,4 +1,5 @@
-# Title
+# eMERGE concept set terminology mapping evaluation
+
 1. Download file containing the ICD9 codes for eMERGE concept sets
 `scp USER@gem.dbmi.columbia.edu:/phi/proj/phenotype2008/emerge/omopdefinitions/eMERGE_concept_sets.csv ./emerge_files`
 
