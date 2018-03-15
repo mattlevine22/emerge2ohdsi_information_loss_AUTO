@@ -3,8 +3,10 @@ args = commandArgs(trailingOnly=TRUE)
 input_file_name = args[1]
 output_dir = args[2]
 
+print(input_file_name)
+print(output_dir)
+args
 # the tables made here are designed to help with easy plotting/binning codes/concepts according to their number of mappings
-
 
 hasN <- function(x,N) {
   return(as.numeric(any(x==N)))
