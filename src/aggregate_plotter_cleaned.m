@@ -7,10 +7,9 @@
 
 
 % Plotting emerge OHDSI code/concept set patient gain/loss
+function aggregate_plotter_cleaned(data_dir, output_dir)
 
-data_dir = '/phi/proj/terminology_info_loss/output';
-output_dir = '/phi/proj/terminology_info_loss/output_plots';
-
+mkdir(output_dir)
 
 % data_dir = '/Users/matthewlevine/code_projects/terminology_information_loss/output_data1';
 % output_dir = '/Users/matthewlevine/code_projects/terminology_information_loss/output_plots_local';
