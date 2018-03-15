@@ -13,12 +13,13 @@
 3. Run primary analysis
 	1. `bash run_analysis.sh MY_DB_NAME MY_DB_USER_NAME`
 	2. (optional) Send output to machine with matlab, for plotting:
-		`rsync -avrz ./output USER@gem.dbmi.columbia.edu:/phi/proj/terminology_info_loss/emerge2ohdsi_automatic`
+		`rsync -avrz ./output USER@gem.dbmi.columbia.edu:/phi/proj/terminology_info_loss/emerge2ohdsi_information_loss_AUTO`
 
 4. Run plotting
+	`cd ./src`
 	In matlab, run:
 ```
-	data_dir = '/phi/proj/terminology_info_loss/output';
-	output_dir = '/phi/proj/terminology_info_loss/output_plots';
+	data_dir = '/phi/proj/terminology_info_loss/emerge2ohdsi_automatic/output';
+	output_dir = '/phi/proj/terminology_info_loss/emerge2ohdsi_automatic/output';
 	aggregate_plotter_cleaned(data_dir, output_dir);
 ```

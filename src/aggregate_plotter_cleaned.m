@@ -789,6 +789,7 @@ xticklabels(ax4_rel,my_labels)
 savefig(netfig_rel,sprintf('%s/NetPercentPatientChange.fig',output_dir))
 print(netfig_rel,sprintf('%s/NetPercentPatientChange.png',output_dir),'-dpng','-r300')
 
+
 %%
 function goo = neglog(foo)
 %% Please note that this function only makes sense to use when data are not between -1 and 1 (zero is OK though).
@@ -805,3 +806,6 @@ end
 goo = ((foo > 0).*log10(foo))+(-(foo<0).*log10(-foo));
 goo(foo==0) = 0;
 end
+
+end
+
