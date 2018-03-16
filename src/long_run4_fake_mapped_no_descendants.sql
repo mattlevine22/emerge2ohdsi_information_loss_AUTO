@@ -185,14 +185,16 @@ select count(distinct concept_id) from definite_null_mappings;
 select * from definite_null_mappings order by concept_code;
 
 -- append descendants of mapped codes
+-- NOTE: this doesn't map to descendants, just copies the mapped IDs to the desc column
+-- so that the rest of the analysis is identical to the all_descendants case
 CREATE TABLE icd_src_concepts_mapped_descendants AS
 SELECT DISTINCT foo.*, vocabulary_id as descendant_vocabulary_id, standard_concept as descendant_is_standard
 FROM
 (
-SELECT DISTINCT icd_src_concepts_mapped.*, descendant_concept_id as descendant_mapped_concept_id
+SELECT DISTINCT icd_src_concepts_mapped.*, icd_src_concepts_mapped.mapped_concept_id as descendant_mapped_concept_id
 FROM icd_src_concepts_mapped
-LEFT JOIN public.concept_ancestor
-ON icd_src_concepts_mapped.mapped_concept_id = public.concept_ancestor.ancestor_concept_id
+-- LEFT JOIN public.concept_ancestor
+-- ON icd_src_concepts_mapped.mapped_concept_id = public.concept_ancestor.ancestor_concept_id
 ) foo
 LEFT JOIN public.concept
 ON foo.descendant_mapped_concept_id = public.concept.concept_id
