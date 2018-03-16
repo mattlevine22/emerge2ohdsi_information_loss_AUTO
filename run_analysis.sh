@@ -1,5 +1,6 @@
 #!/bin/sh
-mkdir ./output
+mkdir ./output_all_descendants
+mkdir ./output_no_descendants
 
 dbname=$1
 username=$2
