@@ -94,7 +94,7 @@ create table emerge_final_icd_table as
 	select *
 	from test_new2;
 
-\copy emerge_final_icd_table TO './output/emerge_final_icd_table.csv' DELIMITER ',' CSV HEADER;
+\copy emerge_final_icd_table TO './output_no_descendants/emerge_final_icd_table.csv' DELIMITER ',' CSV HEADER;
 
 
 drop table test_new;

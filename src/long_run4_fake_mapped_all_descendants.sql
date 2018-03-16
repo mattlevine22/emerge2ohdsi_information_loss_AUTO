@@ -360,7 +360,7 @@ update count_patient_inclusion_per_src_code set num_patients_per_src_code_both =
 update count_patient_inclusion_per_src_code set num_patients_per_src_code_src_only = 0 where num_patients_per_src_code_src_only is null;
 update count_patient_inclusion_per_src_code set num_patients_per_src_code_map_only = 0 where num_patients_per_src_code_map_only is null;
 
-\copy count_patient_inclusion_per_src_code TO './output/count_patient_inclusion_per_src_code.csv' DELIMITER ',' CSV HEADER;
+\copy count_patient_inclusion_per_src_code TO './output_all_descendants/count_patient_inclusion_per_src_code.csv' DELIMITER ',' CSV HEADER;
 
 
 --list patients in each concept SET, and label as 'source', 'mapped', or 'both'
@@ -442,7 +442,7 @@ update count_patient_inclusion_per_concept_set set num_patients_per_concept_set_
 update count_patient_inclusion_per_concept_set set num_patients_per_concept_set_src_only = 0 where num_patients_per_concept_set_src_only is null;
 update count_patient_inclusion_per_concept_set set num_patients_per_concept_set_map_only = 0 where num_patients_per_concept_set_map_only is null;
 
-\copy (select * from count_patient_inclusion_per_concept_set order by idx) TO './output/count_patient_inclusion_per_concept_set.csv' DELIMITER ',' CSV HEADER;
+\copy (select * from count_patient_inclusion_per_concept_set order by idx) TO './output_all_descendants/count_patient_inclusion_per_concept_set.csv' DELIMITER ',' CSV HEADER;
 
 --### COUNTING patients per concept set###
 DROP TABLE tmp_codes2_src;
@@ -599,7 +599,7 @@ create table emerge_final_icd_table as
 	where src_vocabulary_id = 'ICD9CM'
 	order by idx, mapped_concept_id, descendant_mapped_concept_id;
 
-\copy emerge_final_icd_table TO './output/emerge_final_icd_table.csv' DELIMITER ',' CSV HEADER;
+\copy emerge_final_icd_table TO './output_all_descendants/emerge_final_icd_table.csv' DELIMITER ',' CSV HEADER;
 
 -- Clean things up, delete temporary tables
 DROP TABLE definite_n_mappings;

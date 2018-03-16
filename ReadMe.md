@@ -15,11 +15,10 @@
 	2. (optional) Send output to machine with matlab, for plotting:
 		`rsync -avrz ./output USER@gem.dbmi.columbia.edu:/phi/proj/terminology_info_loss/emerge2ohdsi_information_loss_AUTO`
 
-4. Run plotting
-	`cd ./src`
-	In matlab, run:
+4. Run plotting from matlab:
 ```
-	data_dir = '/phi/proj/terminology_info_loss/emerge2ohdsi_automatic/output';
-	output_dir = '/phi/proj/terminology_info_loss/emerge2ohdsi_automatic/output';
-	aggregate_plotter_cleaned(data_dir, output_dir);
+cd ./src
+data_dir = '/phi/proj/terminology_info_loss/emerge2ohdsi_information_loss_AUTO/output';
+output_dir = '/phi/proj/terminology_info_loss/emerge2ohdsi_information_loss_AUTO/output';
+aggregate_plotter_cleaned(data_dir, output_dir);
 ```
